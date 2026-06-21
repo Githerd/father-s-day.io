@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: fathers-day-website
+    runtime: python
+    repo: https://github.com/Githerd/father-s-day.io
+    plan: free
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
