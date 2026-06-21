@@ -1,0 +1,476 @@
+Here's the updated code with a stronger focus on provision, wealth, and legacy. I've replaced the quote, icons, and surprise messages to reflect themes of abundance, guidance, and prosperity.
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>❤️ Happy Father's Day</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ---------- RESET & BASE ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            background: linear-gradient(145deg, #f9f3e8 0%, #f0e6d5 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            color: #2e241e;
+        }
+
+        /* ---------- CARD ---------- */
+        .card {
+            max-width: 780px;
+            width: 100%;
+            background: rgba(255, 250, 240, 0.85);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border-radius: 64px 64px 48px 48px;
+            box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.25),
+                        0 8px 18px rgba(0, 0, 0, 0.08);
+            padding: 2.8rem 2.2rem 3.2rem;
+            transition: all 0.25s ease;
+            border: 1px solid rgba(255, 215, 175, 0.4);
+            text-align: center;
+        }
+
+        @media (max-width: 500px) {
+            .card {
+                padding: 2rem 1.25rem 2.5rem;
+                border-radius: 48px 48px 32px 32px;
+            }
+        }
+
+        /* ---------- TYPOGRAPHY ---------- */
+        .greeting {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #b07d5e;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .title {
+            font-size: 3.8rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin: 0.2rem 0 0.4rem;
+            background: linear-gradient(135deg, #3d2a1e, #7a4f37);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+            word-break: break-word;
+        }
+
+        @media (max-width: 500px) {
+            .title {
+                font-size: 2.8rem;
+            }
+        }
+
+        .sub-message {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #4f3829;
+            background: rgba(210, 180, 150, 0.2);
+            display: inline-block;
+            padding: 0.3rem 2rem;
+            border-radius: 60px;
+            backdrop-filter: blur(2px);
+            margin: 0.6rem 0 1.2rem;
+            border: 1px solid rgba(180, 140, 110, 0.2);
+        }
+
+        .dad-name {
+            font-weight: 600;
+            color: #2b1b12;
+            background: #e6d4c0;
+            padding: 0.1rem 1.2rem;
+            border-radius: 40px;
+            display: inline-block;
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
+            box-shadow: inset 0 1px 4px rgba(255, 255, 255, 0.7);
+        }
+
+        /* ---------- QUOTE / MESSAGE ---------- */
+        .message-box {
+            background: rgba(245, 235, 220, 0.6);
+            padding: 1.8rem 1.8rem;
+            border-radius: 48px;
+            margin: 1.8rem 0 2rem;
+            border-left: 4px solid #c79a7a;
+            border-right: 4px solid #c79a7a;
+            box-shadow: inset 0 2px 8px rgba(100, 70, 50, 0.06);
+        }
+
+        .message-box i {
+            color: #b47b58;
+            font-size: 1.6rem;
+            margin: 0 0.4rem;
+            opacity: 0.7;
+        }
+
+        .message-box p {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            font-weight: 400;
+            color: #2f221b;
+            font-style: italic;
+        }
+
+        .message-box .author {
+            display: block;
+            margin-top: 0.5rem;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 1rem;
+            color: #785b47;
+            letter-spacing: 1px;
+        }
+
+        /* ---------- ICON ROW ---------- */
+        .icon-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem 1.8rem;
+            margin: 2.2rem 0 1.8rem;
+        }
+
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 2.2rem;
+            color: #5e4030;
+            background: rgba(235, 215, 195, 0.3);
+            padding: 0.6rem 1.2rem;
+            border-radius: 60px;
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(190, 155, 130, 0.2);
+            transition: 0.2s;
+            min-width: 80px;
+        }
+
+        .icon-item span {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: #4b362a;
+            text-transform: uppercase;
+        }
+
+        .icon-item:hover {
+            background: rgba(210, 180, 155, 0.3);
+            transform: scale(1.02);
+            border-color: #b68b70;
+        }
+
+        /* ---------- BUTTON ---------- */
+        .btn-surprise {
+            background: #3f2b1f;
+            border: none;
+            color: #fcf3e9;
+            font-size: 1.3rem;
+            font-weight: 600;
+            padding: 1rem 2.6rem;
+            border-radius: 60px;
+            cursor: pointer;
+            box-shadow: 0 8px 18px rgba(50, 30, 20, 0.2);
+            transition: 0.15s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            margin: 1rem 0 0.5rem;
+            border: 1px solid #624a38;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-surprise i {
+            font-size: 1.2rem;
+            transition: 0.2s;
+        }
+
+        .btn-surprise:hover {
+            background: #523a2b;
+            transform: scale(1.02);
+            box-shadow: 0 12px 24px rgba(40, 25, 15, 0.3);
+        }
+
+        .btn-surprise:active {
+            transform: scale(0.96);
+        }
+
+        .btn-surprise .fa-heart {
+            color: #ff8a7a;
+        }
+
+        /* ---------- SURPRISE AREA ---------- */
+        .surprise-box {
+            margin: 2rem 0 0.8rem;
+            padding: 1.2rem 1rem;
+            border-radius: 40px;
+            background: rgba(245, 225, 205, 0.3);
+            min-height: 70px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #b18b72;
+            transition: all 0.3s ease;
+        }
+
+        .surprise-box.hidden {
+            opacity: 0;
+            transform: scale(0.92);
+            pointer-events: none;
+            min-height: 40px;
+            padding: 0.6rem;
+        }
+
+        .surprise-box.visible {
+            opacity: 1;
+            transform: scale(1);
+            background: rgba(235, 210, 185, 0.35);
+            border: 1px solid #b58b6e;
+        }
+
+        .surprise-text {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #2b1b12;
+            line-height: 1.5;
+        }
+
+        .surprise-text i {
+            color: #b3593a;
+            margin: 0 6px;
+        }
+
+        /* ---------- FOOTER ---------- */
+        .footer {
+            margin-top: 2.2rem;
+            font-size: 0.9rem;
+            color: #7a6252;
+            letter-spacing: 1px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem 1.5rem;
+            border-top: 1px solid rgba(160, 125, 100, 0.2);
+            padding-top: 1.5rem;
+        }
+
+        .footer i {
+            margin-right: 6px;
+            color: #9f7359;
+        }
+
+        /* ---------- RESPONSIVE TWEAKS ---------- */
+        @media (max-width: 450px) {
+            .icon-item {
+                font-size: 1.8rem;
+                min-width: 65px;
+                padding: 0.4rem 0.8rem;
+            }
+            .btn-surprise {
+                font-size: 1.1rem;
+                padding: 0.8rem 1.8rem;
+            }
+            .message-box p {
+                font-size: 1.1rem;
+            }
+            .sub-message {
+                font-size: 1rem;
+                padding: 0.2rem 1.2rem;
+            }
+            .dad-name {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* small extra love */
+        .glow {
+            animation: pulseGlow 2.4s infinite alternate;
+        }
+        @keyframes pulseGlow {
+            0% { opacity: 0.7; text-shadow: 0 0 2px rgba(180, 100, 60, 0.2); }
+            100% { opacity: 1; text-shadow: 0 0 16px rgba(200, 130, 80, 0.4); }
+        }
+    </style>
+</head>
+<body>
+    <div class="card" id="app">
+        <!-- Greeting -->
+        <div class="greeting">
+            <i class="fas fa-star" style="color: #b47b58; font-size: 0.9rem;"></i>
+            &nbsp; celebrating dad &nbsp;
+            <i class="fas fa-star" style="color: #b47b58; font-size: 0.9rem;"></i>
+        </div>
+
+        <!-- Title -->
+        <h1 class="title">Happy Father's Day</h1>
+
+        <!-- Sub message -->
+        <div class="sub-message">
+            <i class="fas fa-feather-alt" style="margin-right: 8px;"></i> 
+            with love
+            <i class="fas fa-feather-alt" style="margin-left: 8px;"></i>
+        </div>
+
+        <!-- Dad name (dynamic) -->
+        <div class="dad-name" id="dadNameDisplay">
+            <i class="fas fa-user-tie" style="margin-right: 8px; opacity: 0.7;"></i>
+            Dad
+        </div>
+
+        <!-- Quote / message — updated for provision & wealth -->
+        <div class="message-box">
+            <i class="fas fa-quote-left"></i>
+            <p id="mainMessage">“A father’s true legacy is not in what he leaves behind, but in the strength, wisdom, and abundance he builds in those he loves. He provides not just for today, but for generations.”</p>
+            <i class="fas fa-quote-right" style="float: right;"></i>
+            <span class="author">— legacy of provision</span>
+        </div>
+
+        <!-- Icon row — updated to reflect wealth, prosperity, guidance -->
+        <div class="icon-row">
+            <div class="icon-item">
+                <i class="fas fa-hand-holding-usd" style="color: #2d6a4f;"></i>
+                <span>Provision</span>
+            </div>
+            <div class="icon-item">
+                <i class="fas fa-chart-line" style="color: #1e6091;"></i>
+                <span>Growth</span>
+            </div>
+            <div class="icon-item">
+                <i class="fas fa-landmark" style="color: #b9770e;"></i>
+                <span>Legacy</span>
+            </div>
+            <div class="icon-item">
+                <i class="fas fa-seedling" style="color: #2d6a4f;"></i>
+                <span>Nurture</span>
+            </div>
+        </div>
+
+        <!-- Surprise button -->
+        <button class="btn-surprise" id="surpriseBtn">
+            <i class="fas fa-gift"></i> 
+            Surprise for Dad 
+            <i class="fas fa-heart"></i>
+        </button>
+
+        <!-- Surprise reveal area — updated with wealth & provision messages -->
+        <div id="surpriseBox" class="surprise-box hidden">
+            <div class="surprise-text" id="surpriseText">
+                <i class="fas fa-crown"></i> 
+                Keep being the amazing you! 
+                <i class="fas fa-crown"></i>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <span><i class="fas fa-calendar-alt"></i> June 21, 2026</span>
+            <span><i class="fas fa-globe"></i> Father's Day</span>
+            <span><i class="fas fa-mug-hot"></i> made with love</span>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            "use strict";
+
+            // ----- DOM refs -----
+            const dadNameDisplay = document.getElementById('dadNameDisplay');
+            const mainMessage = document.getElementById('mainMessage');
+            const surpriseBtn = document.getElementById('surpriseBtn');
+            const surpriseBox = document.getElementById('surpriseBox');
+            const surpriseText = document.getElementById('surpriseText');
+
+            // ----- Dad name (customizable) -----
+            const DAD_NAME = 'Dad';   // <-- change to your dad's name
+
+            dadNameDisplay.innerHTML = `<i class="fas fa-user-tie" style="margin-right: 8px; opacity: 0.7;"></i> ${DAD_NAME}`;
+
+            // ----- Surprise messages — focused on provision, wealth, legacy -----
+            const surpriseMessages = [
+                { text: '🏦 You build more than wealth — you build futures. Thank you, Dad!', icon: 'fa-building-columns' },
+                { text: '📈 Your wisdom is the greatest investment. It keeps growing in us.', icon: 'fa-arrow-trend-up' },
+                { text: '🌱 Every seed you’ve planted in us has grown into abundance.', icon: 'fa-seedling' },
+                { text: '🛡️ You are our provider, protector, and pillar of strength.', icon: 'fa-shield-halved' },
+                { text: '🌟 Your legacy is not in gold, but in the values you’ve given us.', icon: 'fa-star' },
+                { text: '💼 Thank you for working hard so we can dream bigger. You’re our hero.', icon: 'fa-briefcase' },
+            ];
+
+            let currentSurpriseIndex = 0;
+
+            // ----- update surprise content -----
+            function showSurprise(index) {
+                const msg = surpriseMessages[index % surpriseMessages.length];
+                surpriseText.innerHTML = `
+                    <i class="fas ${msg.icon}" style="margin-right: 8px; color: #b46a48;"></i>
+                    ${msg.text}
+                    <i class="fas ${msg.icon}" style="margin-left: 8px; color: #b46a48;"></i>
+                `;
+                surpriseBox.classList.remove('hidden');
+                surpriseBox.classList.add('visible');
+                currentSurpriseIndex = (index + 1) % surpriseMessages.length;
+            }
+
+            // ----- hide surprise (initial) -----
+            function hideSurprise() {
+                surpriseBox.classList.add('hidden');
+                surpriseBox.classList.remove('visible');
+            }
+
+            // initially hidden
+            hideSurprise();
+
+            // ----- button click: toggle surprise or cycle -----
+            surpriseBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                if (surpriseBox.classList.contains('hidden')) {
+                    showSurprise(0);
+                } else {
+                    showSurprise(currentSurpriseIndex);
+                }
+
+                if (navigator.vibrate) {
+                    navigator.vibrate(12);
+                }
+
+                surpriseBtn.style.transform = 'scale(0.94)';
+                setTimeout(() => {
+                    surpriseBtn.style.transform = '';
+                }, 120);
+            });
+
+            // ----- double click on card resets surprise (optional) -----
+            const card = document.querySelector('.card');
+            card.addEventListener('dblclick', function() {
+                hideSurprise();
+                currentSurpriseIndex = 0;
+                surpriseBtn.style.transform = 'scale(0.96)';
+                setTimeout(() => { surpriseBtn.style.transform = ''; }, 150);
+            });
+
+            console.log(`❤️ Happy Father's Day, ${DAD_NAME}! ❤️`);
+        })();
+    </script>
+</body>
+</html>
