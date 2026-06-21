@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "fathers-day-website"
+version = "1.0.0"
+description = "A responsive Father's Day website focused on provision and wealth"
+authors = ["Kareemat Adebisi <kmat.adebisi@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+Flask = "^2.3.3"
+Werkzeug = "^2.3.7"
+Jinja2 = "^3.1.2"
+itsdangerous = "^2.1.2"
+click = "^8.1.7"
+gunicorn = "^21.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+start = "app:main"
