@@ -90,18 +90,6 @@
             border: 1px solid rgba(180, 140, 110, 0.2);
         }
 
-        .dad-name {
-            font-weight: 600;
-            color: #2b1b12;
-            background: #e6d4c0;
-            padding: 0.1rem 1.2rem;
-            border-radius: 40px;
-            display: inline-block;
-            font-size: 1.6rem;
-            margin-bottom: 1.2rem;
-            box-shadow: inset 0 1px 4px rgba(255, 255, 255, 0.7);
-        }
-
         /* ---------- QUOTE / MESSAGE ---------- */
         .message-box {
             background: rgba(245, 235, 220, 0.6);
@@ -296,9 +284,6 @@
                 font-size: 1rem;
                 padding: 0.2rem 1.2rem;
             }
-            .dad-name {
-                font-size: 1.2rem;
-            }
         }
 
         /* small extra love */
@@ -333,7 +318,7 @@
         <!-- Quote / message — updated for provision & wealth -->
         <div class="message-box">
             <i class="fas fa-quote-left"></i>
-            <p id="mainMessage">“A father’s true legacy is not in what he leaves behind, but in the strength, wisdom, and abundance he builds in those he loves. He provides not just for today, but for generations.”</p>
+            <p id="mainMessage">"A father's true legacy is not in what he leaves behind, but in the strength, wisdom, and abundance he builds in those he loves. He provides not just for today, but for generations."</p>
             <i class="fas fa-quote-right" style="float: right;"></i>
             <span class="author">— legacy of provision</span>
         </div>
@@ -387,25 +372,20 @@
             "use strict";
 
             // ----- DOM refs -----
-            const dadNameDisplay = document.getElementById('dadNameDisplay');
-            const mainMessage = document.getElementById('mainMessage');
             const surpriseBtn = document.getElementById('surpriseBtn');
             const surpriseBox = document.getElementById('surpriseBox');
             const surpriseText = document.getElementById('surpriseText');
 
-            // ----- Dad name (customizable) -----
-            const DAD_NAME = 'Dad';   // <-- change to your dad's name
-
-            dadNameDisplay.innerHTML = `<i class="fas fa-user-tie" style="margin-right: 8px; opacity: 0.7;"></i> ${DAD_NAME}`;
-
             // ----- Surprise messages — focused on provision, wealth, legacy -----
             const surpriseMessages = [
                 { text: '🏦 You build more than wealth — you build futures. Thank you, Dad!', icon: 'fa-building-columns' },
-                { text: 'Your wisdom is the greatest investment. It keeps growing in us.', icon: 'fa-arrow-trend-up' },
-                { text: 'Every seed you’ve planted in us has grown into abundance.', icon: 'fa-seedling' },
+                { text: '📈 Your wisdom is the greatest investment. It keeps growing in us.', icon: 'fa-arrow-trend-up' },
+                { text: '🌱 Every seed you\'ve planted in us has grown into abundance.', icon: 'fa-seedling' },
                 { text: '🛡️ You are our provider, protector, and pillar of strength.', icon: 'fa-shield-halved' },
-                { text: 'Your legacy is not in gold, but in the values you’ve given us.', icon: 'fa-star' },
-                { text: 'Thank you for working hard so we can dream bigger. You’re our hero.', icon: 'fa-briefcase' },
+                { text: '🌟 Your legacy is not in gold, but in the values you\'ve given us.', icon: 'fa-star' },
+                { text: '💼 Thank you for working hard so we can dream bigger. You\'re our hero.', icon: 'fa-briefcase' },
+                { text: '💰 Your provision is the foundation of our dreams. We are forever grateful.', icon: 'fa-coins' },
+                { text: '🏆 You\'ve built an empire of love, wisdom, and opportunity for us.', icon: 'fa-trophy' }
             ];
 
             let currentSurpriseIndex = 0;
@@ -413,13 +393,16 @@
             // ----- update surprise content -----
             function showSurprise(index) {
                 const msg = surpriseMessages[index % surpriseMessages.length];
+                // Build the surprise text with proper icon and message
                 surpriseText.innerHTML = `
-                    <i class="fas ${msg.icon}" style="margin-right: 8px; color: #b46a48;"></i>
+                    <i class="fas ${msg.icon}" style="margin-right: 10px; color: #b46a48;"></i>
                     ${msg.text}
-                    <i class="fas ${msg.icon}" style="margin-left: 8px; color: #b46a48;"></i>
+                    <i class="fas ${msg.icon}" style="margin-left: 10px; color: #b46a48;"></i>
                 `;
+                // Make the box visible
                 surpriseBox.classList.remove('hidden');
                 surpriseBox.classList.add('visible');
+                // Update index for next click
                 currentSurpriseIndex = (index + 1) % surpriseMessages.length;
             }
 
@@ -429,7 +412,7 @@
                 surpriseBox.classList.remove('visible');
             }
 
-            // initially hidden
+            // Initially hide the surprise box
             hideSurprise();
 
             // ----- button click: toggle surprise or cycle -----
@@ -437,15 +420,19 @@
                 e.preventDefault();
 
                 if (surpriseBox.classList.contains('hidden')) {
+                    // Show first surprise
                     showSurprise(0);
                 } else {
+                    // Show next surprise
                     showSurprise(currentSurpriseIndex);
                 }
 
+                // Optional haptic feedback
                 if (navigator.vibrate) {
                     navigator.vibrate(12);
                 }
 
+                // Button press animation
                 surpriseBtn.style.transform = 'scale(0.94)';
                 setTimeout(() => {
                     surpriseBtn.style.transform = '';
@@ -461,7 +448,7 @@
                 setTimeout(() => { surpriseBtn.style.transform = ''; }, 150);
             });
 
-            console.log(`❤️ Happy Father's Day, ${DAD_NAME}! ❤️`);
+            console.log('❤️ Happy Father\'s Day! ❤️');
         })();
     </script>
 </body>
