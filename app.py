@@ -1,6 +1,7 @@
 from flask import Flask, render_template, jsonify, request
 import random
 import os
+import sys
 
 app = Flask(__name__)
 
@@ -21,9 +22,8 @@ PROVISION_MESSAGES = [
 @app.route('/')
 def index():
     """Render the main Father's Day page."""
-    # You can pass dynamic data to the template
     context = {
-        'dad_name': 'Dad',  # Default, can be overridden
+        'dad_name': 'Dad',
         'message': random.choice(PROVISION_MESSAGES),
         'year': 2026
     }
@@ -57,7 +57,6 @@ def update_name():
     """Update the dad's name (for potential future customization)."""
     data = request.get_json()
     name = data.get('name', 'Dad')
-    # In a real app, you might save this to a session or database
     return jsonify({
         'status': 'success',
         'name': name,
@@ -73,6 +72,10 @@ def not_found(error):
 def server_error(error):
     return jsonify({'error': 'Internal server error'}), 500
 
+def main():
+    """Main entry point for the application."""
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
+
 if __name__ == '__main__':
-    # For local development
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    main()
